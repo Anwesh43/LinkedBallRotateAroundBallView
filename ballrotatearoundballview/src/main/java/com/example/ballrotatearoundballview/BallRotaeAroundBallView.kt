@@ -18,7 +18,7 @@ val colors : Array<Int> = arrayOf(
     Color.parseColor(it)
 }.toTypedArray()
 val parts : Int = 5
-val scGap : Float = 0.02f / parts
+val scGap : Float = 0.05f / parts
 val r1Factor : Float = 5.9f
 val r2Factor : Float = 21.2f
 val delay : Long = 20
@@ -42,7 +42,7 @@ fun Canvas.drawBallRotateAroundBall(scale : Float, w : Float, h : Float, paint :
     drawCircle(0f, 0f, r1 * (sc1 - sc5), paint)
     save()
     rotate(rot * sc3)
-    drawCircle(-r2 + (w - r2) * (sc2  - sc4), 0f, r2, paint)
+    drawCircle(-w / 2  -r2 + (w / 2 - r1) * (sc2  - sc4), 0f, r2, paint)
     restore()
     restore()
 }
