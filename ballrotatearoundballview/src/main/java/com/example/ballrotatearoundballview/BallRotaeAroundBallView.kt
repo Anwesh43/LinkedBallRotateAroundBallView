@@ -180,4 +180,27 @@ class BallRotateAroundBallView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : BallRotateAroundBallView) {
+
+        private val animator : Animator = Animator(view)
+        private val brab : BallRotateAroundBall = BallRotateAroundBall(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            brab.draw(canvas, paint)
+            animator.animate {
+                brab.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            brab.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
