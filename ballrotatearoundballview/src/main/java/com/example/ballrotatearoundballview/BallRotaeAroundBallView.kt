@@ -205,4 +205,13 @@ class BallRotateAroundBallView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : BallRotateAroundBallView {
+            val view : BallRotateAroundBallView = BallRotateAroundBallView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
